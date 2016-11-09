@@ -26,9 +26,7 @@ $(function() {
 
     };
     $('td').each(function() {
-        var rowCount = $('td').length;
-        console.log("Length :"+ rowCount);
-        var concatClass = this.cellIndex+1;
+        var concatClass = this.cellIndex+ ""+ this.parentNode.rowIndex;
         var numberString = parseInt(concatClass, 10);
         $(this).addClass("cell" + numberString).text(numberString);
     });
@@ -45,7 +43,7 @@ $(function() {
             bingo.houseCompleted(random);
             console.log(random);
             $(".bigNumberDisplay span").text(random);
-            $('td.cell+1' + random).addClass('selected');
+            $('td.cell' + random).addClass('selected');
         }
     });
 });
