@@ -27,6 +27,7 @@ div {
 
  td.selected {
      color: #f00;
+     background-color: orange;
  }
  .dividends {
    border: 2px solid black;

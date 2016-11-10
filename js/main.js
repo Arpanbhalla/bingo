@@ -1,16 +1,14 @@
 var count = 0;
-var audio = $("#mysoundclip");
 $(function() {
     var bingo = {
-      selectedNumbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90],
       generateRandom: function() {
         var randomIndex = Math.floor(Math.random()*bingo.selectedNumbers.length);
         return randomIndex;
       },
       boardReset: function(){
         $("td").removeClass("selected");
-        bingo.selectedNumbers=[1,2,3,4,5,6,7,8,9,10];
         $(".bigNumberDisplay span").text("0");
+        bingo.selectedNumbers=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90]
       },
       houseCompleted: function(randomIndex){
         randomSelectedNumber=bingo.selectedNumbers[randomIndex];
@@ -40,22 +38,22 @@ $(function() {
         $(".dividends").append("<p>Out House : "+"$"+collection/4+"</p>");
         $(".dividends").append("<p>Full House : "+"$"+collection/2+"</p>");
         $( "p" ).on({
-  click: function() {
-    var text = $(this).text();
-    $( this ).toggleClass( "active" );
-  }, mouseenter: function() {
-    $( this ).addClass( "inside" );
-  }, mouseleave: function() {
-    $( this ).removeClass( "inside" );
-  }
-});
-    });
-
+          click: function() {
+            var text = $(this).text();
+            $( this ).toggleClass( "active" );
+          }, mouseenter: function() {
+            $( this ).addClass( "inside" );
+          }, mouseleave: function() {
+            $( this ).removeClass( "inside" );
+          }
+        });
+      });
+    bingo.boardReset();
     $("#btnGenerate").on("click", function(event){
         if ((bingo.selectedNumbers.length)===0) {
             bingo.boardReset();
             count +=1;
-            alert ("House " + count + " Completed");
+            swal ("House " + count + " Completed");
             $(".gameCounter span").text(count);
         } else {
             var randomIndex = bingo.generateRandom();
