@@ -28,3 +28,14 @@ div {
  td.selected {
      color: #f00;
  }
+ .dividends {
+   border: 2px solid black;
+   width:30%;
+   height: auto;
+ }
+ .active {
+ background-color: yellow;
+}
+.inside {
+ background-color: aqua;
+}
