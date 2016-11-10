@@ -8,32 +8,29 @@ $(function() {
             var max = 99;
             var random = Math.floor(Math.random() * (max - min + 1)) + min;
             return random;
-        },
 
+        },
         boardReset: function(){
             $("td").removeClass("selected");
             bingo.selectedNumbers=[];
             $(".bigNumberDisplay span").text("0");
+
+
         },
 
         houseCompleted: function(random){
             bingo.selectedNumbers.push(random);
             console.log("Length of array: " + bingo.selectedNumbers.length);
             console.log(bingo.selectedNumbers);
-        },
-        
+        }
 
     };
-
-    // Create Board -> Creates New board
-
     $('td').each(function() {
-        var concatClass = this.cellIndex + "" + this.parentNode.rowIndex;
-        var numberString = (parseInt(concatClass, 10)+1);
+        var concatClass = this.cellIndex+ ""+ this.parentNode.rowIndex;
+        var numberString = parseInt(concatClass, 10);
         $(this).addClass("cell" + numberString).text(numberString);
     });
 
-    // Click Events -> New Number generator
 
     $("#btnGenerate").on("click", function(){
         if ((bingo.selectedNumbers.length)===5) {
