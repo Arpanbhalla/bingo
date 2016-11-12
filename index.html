@@ -15,29 +15,24 @@
 <script type="text/javascript" src = "./js/jquery.js"></script>
 <script type="text/javascript" src = "./js/main.js"></script>
 <div class="container">
-
+  <nav>
     <div>
         <span>Bingo</span> <span>Games Played :
           <div class="gameCounter">
             <span>0</span>
+            <div class="dividends">
+              <form action="">
+                <input id="totalcollection" type="text" placeholder="Total collection amount">
+                <input id="calculator" type="button" value="Bingo Dividends">
+              </form>
+            </div>
           </div>
       </span>
     </div>
+  </nav>
     <div class="bigNumberDisplay">
         <span>0</span>
     </div>
-    <div class="dividends">
-<form action="">
-  <input id="totalcollection" type="text" palceholder="Total collection amount">
-  <input id="calculator" type="button" value="Bingo Dividends">
-</form>
-
-    </div>
-    <div>
-        <input id="btnGenerate" type="button" value="Generate"/>
-    </div>
-    <br/>
-
 
     <div class="numbersTable">
         <table>
@@ -155,7 +150,17 @@
     </div>
 
     <br/>
+    <div>
+        <input id="btnGenerate" type="button" value="Call Number"/>
+        <input id="boggiecall" type="button" value="Boggie" />
+        <audio id="mysoundclip" preload="auto">
+         <source src="./voices/bullshitter_alert.mp3"></source>
+       </audio>
+    </div>
+    <br/>
 
+
+<footer></footer>
 </div>
 </body>
 </html>
